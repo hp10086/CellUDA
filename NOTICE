@@ -1,0 +1,61 @@
+CellUDA: Unsupervised Domain Adaptation for Cell Classification in Histopathology
+Copyright 2026 Haipeng Zhao, Stony Brook University
+
+The original CellUDA code (celluda/, run.py, scripts/, configs/) is licensed under the
+Apache License, Version 2.0 (see LICENSE). The third-party components below
+keep their own terms, which are more restrictive. If you use this repository
+you must comply with them, including the non-commercial restriction and the
+citation requirement of CellViT++.
+
+--------------------------------------------------------------------------------
+1. CellViT++  (third_party/cellvit/ and three derived files in celluda/)
+--------------------------------------------------------------------------------
+third_party/cellvit/ is derived from CellViT++ by Fabian Hörst, Moritz Rempe,
+Helmut Becker, Lukas Heine, Julius Keyl and Jens Kleesiek (Institute for
+Artificial Intelligence in Medicine, University Medicine Essen):
+  https://github.com/TIO-IKIM/CellViT-plus-plus   (upstream commit 463c5c4, 2025-07-23)
+
+License: Apache License 2.0 modified by the "Commons Clause" License Condition
+v1.0 - the software may not be sold, rented or otherwise commercially exploited
+without explicit written permission of the CellViT++ authors - and by a
+mandatory citation requirement: any use of this work must cite CellViT (Hörst
+et al., Medical Image Analysis 2024) and CellViT++ (Hörst et al., arXiv
+2501.05269). The BibTeX entries are in README.md ("Citation"). The complete
+license text is in third_party/cellvit/LICENSE.
+
+What was changed: files that carry the line
+    # Modified from CellViT++ (https://github.com/TIO-IKIM/CellViT-plus-plus) — changes: ...
+directly below the upstream file header were modified by the CellUDA authors;
+the line summarises the change. Every other file under third_party/cellvit/ is
+a verbatim copy of the upstream file, except that import statements were
+rewritten from `cellvit.` to `third_party.cellvit.` to reflect the new
+location. third_party/cellvit/ is a minimal subset of CellViT++ (SAM-H
+segmentation model, HoVer-style post-processing, cell-token extraction,
+classifier head, training base classes, evaluation utilities); everything else
+from upstream was removed. Three files outside third_party/ are also derived
+from CellViT++ and carry the same header line:
+    celluda/experiment.py, celluda/trainer.py, celluda/dataset.py
+
+The CellViT-SAM-H model weights are not distributed with this repository.
+Download them from the CellViT++ authors and use them under their terms.
+
+--------------------------------------------------------------------------------
+2. Segment Anything (SAM) - Meta Platforms, Inc.
+--------------------------------------------------------------------------------
+third_party/cellvit/models/utils/sam_utils.py contains the SAM image encoder,
+Copyright (c) Meta Platforms, Inc. and affiliates, redistributed unchanged by
+CellViT++. License: Apache License 2.0 (third_party/cellvit/LICENSE, section 1
+"SAM-Derivative Components" and Appendix A). The CellViT-SAM-H weights are
+SAM-derivative components under the same Apache 2.0 terms.
+
+--------------------------------------------------------------------------------
+3. HIPT / ViT-256-derived Vision Transformer
+--------------------------------------------------------------------------------
+third_party/cellvit/models/base/vision_transformer.py (used by the ViTCellViT
+class in third_party/cellvit/models/cell_segmentation/backbones.py) is the
+Vision Transformer implementation that CellViT++ uses for its HIPT/ViT-256
+backbone. CellUDA does not run this encoder (the SAM-H encoder replaces it at
+model construction), but the file is required to build the CellViT base class.
+CellViT++ licenses its HIPT-derivative components under the Apache License 2.0
+with the Commons Clause (Licensor: Mahmood Lab); see third_party/cellvit/LICENSE,
+section 2.

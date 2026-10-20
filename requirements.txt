@@ -1,0 +1,24 @@
+# CellUDA runtime dependencies - versions used for the paper experiments (Python 3.10.14, CUDA 12.8).
+# Install PyTorch first from the CUDA 12.8 index (see README.md), then `pip install -r requirements.txt`.
+# CuPy is installed through conda (environment.yaml); do not pip-install cupy-cuda* alongside it.
+torch==2.8.0
+torchvision==0.23.0
+numpy==1.23.5
+scipy==1.15.3
+scikit-image==0.19.3
+numba==0.59.0
+pandas==1.4.3
+h5py==3.9.0
+PyYAML==6.0.3
+pydantic==1.10.4
+schema==0.7.5
+wandb==0.23.1
+torchinfo==1.8.0
+torchmetrics==0.11.4
+einops==0.6.1
+albumentations==1.3.0
+opencv-python-headless==4.7.0.72
+Pillow==10.3.0
+ray==2.9.3
+colorama==0.4.6
+tqdm==4.67.1

@@ -1,0 +1,66 @@
+# Source-only training of the classifier head on BRCA-M2C (step 1). Produces checkpoints/source_heads/brca_m2c_seed<k>.pth.
+logging:
+  mode: offline
+  project: celluda
+  notes: source_brca
+  log_comment: source_brca
+  wandb_dir: ./runtime/logs
+  log_dir: ./runtime/logs
+  level: Debug
+random_seed: 1
+gpu: 0
+data:
+  matching:
+    match_distance: 12
+  dataset_path: ./data/brca_m2c
+  source_splits_dir: ./configs/splits/brca_m2c
+  source_train_split: train
+  source_val_split: test
+  target_dataset_path: ./data/brca_m2c
+  target_splits_dir: ./configs/splits/brca_m2c
+  target_train_split: train
+  target_val_split: test
+  num_classes: 3
+  evaluation: metric
+  label_map:
+    1: Lymphocytes
+    2: Tumor/Epithelial
+    3: All others
+  class_map:
+    train_mapping:
+      1: 0
+      2: 1
+      3: 2
+    target_eval_mapping:
+      1: 0
+      2: 1
+      3: 2
+    target_pred_mapping:
+      0: 0
+      1: 1
+      2: 2
+cellvit_path: ./checkpoints/CellViT-SAM-H-x40-AMP.pth
+classifier_path: null
+model:
+  hidden_dim:
+  - 512
+training:
+  cache_dir: ./runtime/cache
+  classifier_export_dir: ./checkpoints/source_heads
+  batch_size: 256
+  epochs: 500
+  drop_rate: 0.2
+  optimizer: AdamW
+  optimizer_hyperparameter:
+    betas:
+    - 0.85
+    - 0.9
+    lr: 0.0003
+    weight_decay: 0.0001
+  early_stopping_patience: 20
+  early_stopping_min_delta: 0
+  scheduler:
+    scheduler_type: exponential
+    gamma: 0.995
+  mixed_precision: true
+  eval_every: 1

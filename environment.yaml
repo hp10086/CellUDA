@@ -1,0 +1,11 @@
+# Conda environment for CellUDA (Linux, CUDA 12.8). After creating it, install PyTorch
+# from the CUDA 12.8 wheel index and the pip requirements (see README.md, "Installation").
+name: celluda
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10.14
+  - numpy=1.23.5
+  - cupy=13.6.0
+  - cuda-version=12.8
+  - pip

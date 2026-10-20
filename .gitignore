@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+*.egg-info/
+.venv/
+.env
+
+# Datasets (obtain from the original providers; see README.md "Data preparation").
+# Only the empty folder skeleton (.gitkeep files) is tracked.
+data/**
+!data/**/
+!data/**/.gitkeep
+
+# Model weights: CellViT-SAM-H (download from CellViT++) and trained classifier heads
+checkpoints/*
+!checkpoints/README.md
+
+# Run outputs: logs, offline W&B runs, HDF5 cell-token caches, exported heads
+runtime/
+wandb/
+*.log
+*.h5
+*.hdf5
+*.pth
+*.pt
+*.ckpt
+*.npy
+*.npz
