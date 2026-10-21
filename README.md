@@ -1,11 +1,12 @@
 # CellUDA: Unsupervised Domain Adaptation for Cell Classification in Histopathology
 
-Official code for **"CellUDA: Unsupervised Domain Adaptation for Cell Classification in Histopathology" (WACV 2027)**.
+**"CellUDA: Unsupervised Domain Adaptation for Cell Classification in Histopathology" (WACV 2027)**.
 
 ## 1. Installation
 
 ```bash
 git clone https://github.com/hp10086/CellUDA.git CellUDA
+
 cd CellUDA
 
 conda env create -f environment.yaml
