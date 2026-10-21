@@ -5,7 +5,7 @@ Official code for **"CellUDA: Unsupervised Domain Adaptation for Cell Classifica
 ## 1. Installation
 
 ```bash
-git clone https://github.com/hp10086/CellUDA.git CellUDA && cd CellUDA
+git clone https://github.com/hp10086/CellUDA.git CellUDA
 cd CellUDA
 
 conda env create -f environment.yaml
