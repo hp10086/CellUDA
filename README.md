@@ -101,8 +101,7 @@ For an unannotated target dataset, set `data.evaluation: plot` in the config to 
 ## 5. License
 
 * Our code (`celluda/`, `run.py`, `scripts/`, `configs/`): Apache License 2.0 (`LICENSE`).
-* `third_party/cellvit/` is derived from [CellViT++](https://github.com/TIO-IKIM/CellViT-plus-plus) and keeps its license (Apache 2.0 with the Commons Clause): **non-commercial use only**, and **any use of this repository must cite CellViT and CellViT++** (section 6). Full terms:
-  `third_party/cellvit/LICENSE` and `NOTICE`.
+* `third_party/cellvit/` (and `celluda/experiment.py`, `trainer.py`, `dataset.py`, which are adapted from it) is derived from [CellViT++](https://github.com/TIO-IKIM/CellViT-plus-plus) and keeps its license (Apache 2.0 with the Commons Clause): non-commercial use only, and any use must cite CellViT and CellViT++ (section 6). Full terms: `third_party/cellvit/LICENSE`.
 * Datasets and the CellViT-SAM-H weights: see their providers (sections 2 and 3).
 
 ## 6. Citation
