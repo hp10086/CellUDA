@@ -1,6 +1,6 @@
 # CellUDA: Unsupervised Domain Adaptation for Cell Classification in Histopathology
 
-**"CellUDA: Unsupervised Domain Adaptation for Cell Classification in Histopathology" (WACV 2027)**.
+**["CellUDA: Unsupervised Domain Adaptation for Cell Classification in Histopathology"](https://wacv.thecvf.com/virtual/2027/poster/1855) (WACV 2027)**
 
 ## 1. Installation
 
